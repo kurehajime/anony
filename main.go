@@ -18,7 +18,7 @@ func main() {
 	var ok bool = false
 	var encode string
 
-	flag.StringVar(&encode, "e", "", "encoding")
+	flag.StringVar(&encode, "e", "utf-8", "encoding")
 
 	flag.Parse()
 
@@ -39,7 +39,7 @@ func main() {
 		fmt.Fprintln(os.Stderr, err.Error())
 	}
 	
-	text=Anony(text)
+	text=Word2initial(text)
 
 	fmt.Println(text)
 
