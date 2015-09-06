@@ -2,6 +2,8 @@
 
 文中の人名をイニシャルに変換するコマンド
 
+![anony](https://cloud.githubusercontent.com/assets/4569916/9704202/531bdade-54d8-11e5-8687-bdcdcd8a638d.gif)
+
 
 人名を含んだ文章(例:test.txt)を・・・
 
