@@ -9,8 +9,32 @@ import (
 var (
 	t = kagome.NewTokenizer()
 )
-func Anony(text string)string{
-	return text
+func Anony(text string,single bool)string{
+	tokens := t.Tokenize(text)
+	var rText string
+	var IniCount int
+	for j := 0; j < len(tokens); j++ {
+		tk := tokens[j]
+		ft := tk.Features()
+		if len(ft) > 7 {
+			if ft[2]=="人名" && ft[1]=="固有名詞"{
+				if IniCount==0{
+					rText+=Word2initial(ft[7])
+				}else if IniCount==1 && single==false{
+					rText+="・"
+					rText+=Word2initial(ft[7])						
+				}
+				IniCount++
+			}else{
+				rText+=tk.Surface
+				IniCount=0
+			}
+		}else if len(ft)>0{
+			rText+=tk.Surface
+			IniCount=0
+		}
+	}	
+	return rText
 }
 func Word2initial(kana string)string{
 	r,_ :=utf8.DecodeRune([]byte(kana))
@@ -25,6 +49,7 @@ func Word2initial(kana string)string{
  	ini = regexp.MustCompile("[サシスセソ]").ReplaceAllString(ini,"S")
  	ini = regexp.MustCompile("[タチツテト]").ReplaceAllString(ini,"T")
  	ini = regexp.MustCompile("[ナニヌネノ]").ReplaceAllString(ini,"N")
+	ini = regexp.MustCompile("[ハヒフヘホ]").ReplaceAllString(ini,"H")
  	ini = regexp.MustCompile("[マミムメモ]").ReplaceAllString(ini,"M")
  	ini = regexp.MustCompile("[ヤユヨ]").ReplaceAllString(ini,"Y")
  	ini = regexp.MustCompile("[ラリルレロ]").ReplaceAllString(ini,"R")
