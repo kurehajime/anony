@@ -31,3 +31,10 @@ Go言語の開発環境がある場合はgo getでもインストールできま
 ```
 go get -u github.com/kurehajime/anony
 ```
+
+## オプション
+
+  -e string  
+    	文字コード (初期値 "utf-8")  
+  -s	single initial  
+    	イニシャルを一文字で表示
