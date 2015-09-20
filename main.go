@@ -9,6 +9,7 @@ import (
 	"golang.org/x/net/html/charset"
 	"golang.org/x/text/transform"
 	"io/ioutil"
+	"runtime"
 	"os"
 )
 
@@ -18,11 +19,13 @@ func main() {
 	var ok bool = false
 	var encode string
 	var single bool
-
+	if runtime.GOOS == "windows" {
+		encode = "sjis"
+	} else {
+		encode = "utf-8"
+	}
 	flag.StringVar(&encode, "e", "utf-8", "encoding")
 	flag.BoolVar(&single, "s", false, "single initial")
-	
-
 	flag.Parse()
 
 	if len(flag.Args()) == 0 {
