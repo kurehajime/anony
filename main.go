@@ -9,8 +9,8 @@ import (
 	"golang.org/x/net/html/charset"
 	"golang.org/x/text/transform"
 	"io/ioutil"
-	"runtime"
 	"os"
+	"runtime"
 )
 
 func main() {
@@ -38,14 +38,14 @@ func main() {
 	if ok == false {
 		os.Exit(1)
 	}
-	
+
 	//encode
 	text, err = transEnc(text, encode)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err.Error())
 	}
-	
-	text=Anony(text,single)
+
+	text = Anony(text, single)
 
 	fmt.Println(text)
 
