@@ -1,5 +1,5 @@
 // anony.go
-package main
+package anony
 
 import (
 	"github.com/ikawaha/kagome/tokenizer"

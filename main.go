@@ -1,5 +1,5 @@
 // main.go
-package main
+package anony
 
 import (
 	"bufio"

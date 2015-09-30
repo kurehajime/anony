@@ -1,5 +1,5 @@
 // anony_test.go
-package main
+package anony
 
 import (
 	"testing"
