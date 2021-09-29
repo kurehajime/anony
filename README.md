@@ -26,10 +26,10 @@ $ anony test.txt
 [ここ](https://github.com/kurehajime/anony/releases)から実行ファイルをダウンロードできます。
 
 
-Go言語の開発環境がある場合はgo getでもインストールできます。
+Go言語の開発環境がある場合はgo installでもインストールできます。
 
 ```
-go get -u github.com/kurehajime/anony
+go install github.com/kurehajime/anony/cmd/anony@latest
 ```
 
 ## オプション
